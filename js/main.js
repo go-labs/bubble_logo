@@ -5,88 +5,115 @@ $(function() {
 	var ctx;
 	var dt = 0.1;
 
-	var brown = "#775136";
-	var green = "#7DB664";
-
 	var pointCollection;
+
+	function brownColor(y){
+		if(y <= 13)
+			return "#A6610C";
+		if(y > 13 && y <= 20)
+			return '#9F6123';
+		if(y > 20 && y <= 50)
+			return '#946031';
+		if(y > 50 && y <= 70)
+			return '#795237';
+		if(y > 70 && y <= 82)
+			return '#644129';
+		if(y > 82)
+			return "#543019";
+	}
+
+	function greenColor(y){
+		if(y <= 13)
+			return "#8DC63F";
+		if(y > 13 && y <= 20)
+			return '#89C159';
+		if(y > 20 && y <= 50)
+			return '#80B963';
+		if(y > 50 && y <= 70)
+			return '#6CAB5D';
+		if(y > 70 && y <= 82)
+			return '#4D9A42';
+		if(y > 82)
+			return "#419639";
+	}
 
 	function init() {
 		updateCanvasDimensions();
 
 		var g = [
-		    new Point(73, 13, 0.0, 8, brown),
-			new Point(59, 5, 0.0, 6, brown),
-			new Point(42, 4, 0.0, 6, brown), 
-			new Point(27, 9, 0.0, 6, brown),
-			new Point(17, 17, 0.0, 5, brown),
-			new Point(10, 27, 0.0, 6, brown),
-			new Point(6, 38, 0.0, 6, brown), 
-			new Point(6, 49, 0.0, 6, brown), 
-			new Point(8, 60, 0.0, 8, brown), 
-			new Point(14, 71, 0.0, 8, brown), 
-			new Point(25, 82, 0.0, 8, brown),
-			new Point(45, 88, 0.0, 9, brown),
-			new Point(73, 83, 0.0, 9, brown), 
-			new Point(78, 67, 0.0, 8, brown),
-			new Point(63, 62, 0.0, 6, brown),
+		    new Point(73, 13, 0.0, 8, brownColor(13)),
+			new Point(59, 5, 0.0, 6, brownColor(5)),
+			new Point(42, 4, 0.0, 6, brownColor(4)), 
+			new Point(27, 9, 0.0, 6, brownColor(9)),
+			new Point(17, 17, 0.0, 5, brownColor(17)),
+			new Point(10, 27, 0.0, 6, brownColor(27)),
+			new Point(6, 38, 0.0, 6, brownColor(38)), 
+			new Point(6, 49, 0.0, 6, brownColor(49)), 
+			new Point(8, 60, 0.0, 8, brownColor(60)), 
+			new Point(14, 71, 0.0, 8, brownColor(71)), 
+			new Point(25, 82, 0.0, 8, brownColor(82)),
+			new Point(45, 88, 0.0, 9, brownColor(88)),
+			new Point(73, 83, 0.0, 9, brownColor(83)), 
+			new Point(78, 67, 0.0, 8, brownColor(67)),
+			new Point(63, 62, 0.0, 6, brownColor(62)),
 		];
 		var o = [
-			new Point(108, 36, 0.0, 6, brown),
-			new Point(101, 46, 0.0, 5, brown), 
-			new Point(97, 56, 0.0, 6, brown),
-			new Point(100, 65, 0.0, 6, brown), 
-			new Point(105, 75, 0.0, 6, brown), 
-			new Point(117, 83, 0.0, 8, brown),
-			new Point(137, 80, 0.0, 8, brown), 
-			new Point(146, 65, 0.0, 8, brown), 
-			new Point(145, 49, 0.0, 8, brown),
-			new Point(137, 37, 0.0, 6, brown), 
-			new Point(123, 32, 0.0, 6, brown), 
+			new Point(108, 36, 0.0, 6, brownColor(36)),
+			new Point(101, 46, 0.0, 5, brownColor(46)), 
+			new Point(97, 56, 0.0, 6, brownColor(56)),
+			new Point(100, 65, 0.0, 6, brownColor(65)), 
+			new Point(105, 75, 0.0, 6, brownColor(75)), 
+			new Point(117, 83, 0.0, 8, brownColor(83)),
+			new Point(137, 80, 0.0, 8, brownColor(80)), 
+			new Point(146, 65, 0.0, 8, brownColor(65)), 
+			new Point(145, 49, 0.0, 8, brownColor(49)),
+			new Point(137, 37, 0.0, 6, brownColor(37)), 
+			new Point(123, 32, 0.0, 6, brownColor(32)), 
 		];
 			
 		var dash = [
-			new Point(170, 59, 0.0, 9, green), 
-			new Point(190, 59, 0.0, 8, green), 
+			new Point(170, 59, 0.0, 9, greenColor(59)), 
+			new Point(190, 59, 0.0, 8, greenColor(59)), 
 		];
 		var l = [
-			new Point(214, 6, 0.0, 9, "#36b641"), 
-			new Point(214, 23, 0.0, 8, "#10a11d"), 
-			new Point(214, 41, 0.0, 8, "#0b991a"), 
-			new Point(214, 59, 0.0, 9, "#1f9e2c"), 
-			new Point(224, 78, 0.0, 9, "#269230"),
-			new Point(244, 78, 0.0, 7, "#269230"), 
-			new Point(259, 78, 0.0, 7, "#269230"), 
+			new Point(214, 6, 0.0, 9, greenColor(6)), 
+			new Point(214, 23, 0.0, 8, greenColor(23)), 
+			new Point(214, 41, 0.0, 8, greenColor(41)), 
+			new Point(214, 59, 0.0, 9, greenColor(59)), 
+			new Point(224, 78, 0.0, 9, greenColor(78)),
+			new Point(244, 78, 0.0, 7, greenColor(78)), 
+			new Point(259, 78, 0.0, 7, greenColor(78)), 
 		];
 		var a = [
-			new Point(284, 36, 0.0, 6, green),
-			new Point(277, 46, 0.0, 5, green), 
-			new Point(273, 56, 0.0, 6, green),
-			new Point(276, 65, 0.0, 6, green), 
-			new Point(281, 75, 0.0, 6, green), 
-			new Point(293, 83, 0.0, 8, green),
-			new Point(313, 80, 0.0, 8, green), 
-			new Point(322, 65, 0.0, 8, green), 
-			new Point(321, 49, 0.0, 8, green),
-			new Point(313, 37, 0.0, 6, green), 
-			new Point(299, 32, 0.0, 6, green),
-			new Point(330, 83, 0.0, 7, green),
+			new Point(284, 36, 0.0, 6, greenColor(36)),
+			new Point(277, 46, 0.0, 5, greenColor(46)), 
+			new Point(273, 56, 0.0, 6, greenColor(56)),
+			new Point(276, 65, 0.0, 6, greenColor(65)), 
+			new Point(281, 75, 0.0, 6, greenColor(75)), 
+			new Point(293, 83, 0.0, 8, greenColor(83)),
+			new Point(313, 80, 0.0, 8, greenColor(80)), 
+			new Point(322, 65, 0.0, 8, greenColor(65)), 
+			new Point(321, 49, 0.0, 8, greenColor(49)),
+			new Point(313, 37, 0.0, 6, greenColor(37)), 
+			new Point(299, 32, 0.0, 6, greenColor(32)),
+			new Point(330, 83, 0.0, 7, greenColor(83)),
 		];
 
 		var b = [
-			new Point(354, 36, 0.0, 6, brown),
-			new Point(347, 46, 0.0, 5, brown), 
-			new Point(343, 56, 0.0, 6, brown),
-			new Point(346, 65, 0.0, 6, brown), 
-			new Point(351, 75, 0.0, 6, brown), 
-			new Point(363, 83, 0.0, 8, brown),
-			new Point(383, 80, 0.0, 8, brown), 
-			new Point(392, 65, 0.0, 8, brown), 
-			new Point(391, 49, 0.0, 8, brown),
-			new Point(383, 37, 0.0, 6, brown), 
-			new Point(369, 32, 0.0, 6, brown),
-			new Point(341, 35, 0.0, 6, brown),
-			new Point(341, 20, 0.0, 6, brown),
-			new Point(341, 6, 0.0, 7, brown),
+			new Point(354, 36, 0.0, 6, brownColor(36)),
+			new Point(347, 46, 0.0, 5, brownColor(46)), 
+			new Point(343, 56, 0.0, 6, brownColor(56)),
+			new Point(346, 65, 0.0, 6, brownColor(65)), 
+			new Point(351, 75, 0.0, 6, brownColor(75)), 
+			new Point(363, 83, 0.0, 8, brownColor(83)),
+			new Point(383, 80, 0.0, 8, brownColor(80)), 
+			new Point(392, 65, 0.0, 8, brownColor(65)), 
+			new Point(391, 49, 0.0, 8, brownColor(49)),
+			new Point(383, 37, 0.0, 6, brownColor(37)), 
+			new Point(369, 32, 0.0, 6, brownColor(32)),
+			new Point(341, 35, 0.0, 6, brownColor(35)),
+			new Point(341, 20, 0.0, 6, brownColor(20)),
+			new Point(341, 6, 0.0, 7, brownColor(6)),
 		];
 		var s = [];
 		var word = [].concat(g).concat(o).concat(dash).concat(l).concat(a).concat(b).concat(s);
