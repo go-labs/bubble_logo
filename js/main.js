@@ -58,22 +58,38 @@ $(function() {
 			new Point(259, 78, 0.0, 7, "#269230"), 
 		];
 		var a = [
-			new Point(308 - 24, 36, 0.0, 6, green),
-			new Point(301 - 24, 46, 0.0, 5, green), 
-			new Point(297 - 24, 56, 0.0, 6, green),
-			new Point(300 - 24, 65, 0.0, 6, green), 
-			new Point(305 - 24, 75, 0.0, 6, green), 
-			new Point(317 - 24, 83, 0.0, 8, green),
-			new Point(337 - 24, 80, 0.0, 8, green), 
-			new Point(346 - 24, 65, 0.0, 8, green), 
-			new Point(345 - 24, 49, 0.0, 8, green),
-			new Point(337 - 24, 37, 0.0, 6, green), 
-			new Point(323 - 24, 32, 0.0, 6, green),
+			new Point(284, 36, 0.0, 6, green),
+			new Point(277, 46, 0.0, 5, green), 
+			new Point(273, 56, 0.0, 6, green),
+			new Point(276, 65, 0.0, 6, green), 
+			new Point(281, 75, 0.0, 6, green), 
+			new Point(293, 83, 0.0, 8, green),
+			new Point(313, 80, 0.0, 8, green), 
+			new Point(322, 65, 0.0, 8, green), 
+			new Point(321, 49, 0.0, 8, green),
+			new Point(313, 37, 0.0, 6, green), 
+			new Point(299, 32, 0.0, 6, green),
 			new Point(330, 83, 0.0, 7, green),
 		];
-		var b = [];
+
+		var b = [
+			new Point(354, 36, 0.0, 6, brown),
+			new Point(347, 46, 0.0, 5, brown), 
+			new Point(343, 56, 0.0, 6, brown),
+			new Point(346, 65, 0.0, 6, brown), 
+			new Point(351, 75, 0.0, 6, brown), 
+			new Point(363, 83, 0.0, 8, brown),
+			new Point(383, 80, 0.0, 8, brown), 
+			new Point(392, 65, 0.0, 8, brown), 
+			new Point(391, 49, 0.0, 8, brown),
+			new Point(383, 37, 0.0, 6, brown), 
+			new Point(369, 32, 0.0, 6, brown),
+			new Point(341, 35, 0.0, 6, brown),
+			new Point(341, 20, 0.0, 6, brown),
+			new Point(341, 6, 0.0, 7, brown),
+		];
 		var s = [];
-		var word = [].concat(g).concat(o).concat(dash).concat(l).concat(a);
+		var word = [].concat(g).concat(o).concat(dash).concat(l).concat(a).concat(b).concat(s);
 
 		gLength = word.length;
 		for (var i = 0; i < gLength; i++) {
