@@ -115,7 +115,16 @@ $(function() {
 			new Point(341, 20, 0.0, 6, brownColor(20)),
 			new Point(341, 6, 0.0, 7, brownColor(6)),
 		];
-		var s = [];
+		var s = [
+			new Point(435, 33, 0.0, 8, brownColor(33)),
+			new Point(420, 36, 0.0, 7, brownColor(36)),
+			new Point(412, 45, 0.0, 7, brownColor(45)),
+			new Point(420, 56, 0.0, 6, brownColor(56)),
+			new Point(433, 63, 0.0, 6, brownColor(63)),
+			new Point(438, 75, 0.0, 6, brownColor(75)),
+			new Point(425, 80, 0.0, 7, brownColor(80)),
+			new Point(410, 80, 0.0, 8, brownColor(80)),
+		];
 		var word = [].concat(g).concat(o).concat(dash).concat(l).concat(a).concat(b).concat(s);
 
 		gLength = word.length;
