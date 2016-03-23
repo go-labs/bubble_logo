@@ -6,35 +6,24 @@ $(function() {
 	var ctx;
 
 	var pointCollection;
+	var brownColors = ['#A6610C', '#9F6123', '#946031', '#795237', '#644129', '#543019'];
+	var greenColors = ['#8DC63F', '#89C159', '#80B963', '#6CAB5D', '#4D9A42', '#419639'];
+
+	function colorInterval(y) {
+		if(y <= 13) return 0;
+		if(y > 13 && y <= 20) return 1;
+		if(y > 20 && y <= 50) return 2;
+		if(y > 50 && y <= 70)	return 3;
+		if(y > 70 && y <= 82) return 4;
+		if(y > 82) return 5;
+	}
 
 	function brownColor(y){
-		if(y <= 13)
-			return '#A6610C';
-		if(y > 13 && y <= 20)
-			return '#9F6123';
-		if(y > 20 && y <= 50)
-			return '#946031';
-		if(y > 50 && y <= 70)
-			return '#795237';
-		if(y > 70 && y <= 82)
-			return '#644129';
-		if(y > 82)
-			return '#543019';
+		return brownColors[colorInterval(y)];
 	}
 
 	function greenColor(y){
-		if(y <= 13)
-			return '#8DC63F';
-		if(y > 13 && y <= 20)
-			return '#89C159';
-		if(y > 20 && y <= 50)
-			return '#80B963';
-		if(y > 50 && y <= 70)
-			return '#6CAB5D';
-		if(y > 70 && y <= 82)
-			return '#4D9A42';
-		if(y > 82)
-			return '#419639';
+		return greenColors[colorInterval(y)];
 	}
 
 	function init() {
