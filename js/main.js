@@ -4,7 +4,6 @@ $(function() {
 	var canvasHeight;
 	var canvasWidth;
 	var ctx;
-	var dt = 0.1;
 
 	var pointCollection;
 
