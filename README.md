@@ -1,5 +1,5 @@
 # Go-Labs logo built with floating bubbles
 
-<img src="https://raw.githubusercontent.com/go-labs/bubble_logo/master/preview.gif">
+Available => [here](http://go-labs.github.io/bubble_logo)
 
 * Inspired by [rawkes.com](http://rawkes.com/lab/google-balls-logo)
